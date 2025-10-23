@@ -165,13 +165,13 @@ public class DeliveryApp {
 
         switch (choice) {
             case 1:
-                standardParcelParcelBox.getAllParcels();
+                standardParcelParcelBox.getInfoParcels();
                 break;
             case 2:
-                fragileParcelParcelBox.getAllParcels();
+                fragileParcelParcelBox.getInfoParcels();
                 break;
             case 3:
-                perishableParcelParcelBox.getAllParcels();
+                perishableParcelParcelBox.getInfoParcels();
                 break;
             default:
                 System.out.println("Неверный выбор.");
