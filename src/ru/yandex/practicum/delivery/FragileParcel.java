@@ -9,7 +9,7 @@ public class FragileParcel extends Parcel{
     @Override
     public void packageItem() {
         System.out.println(String.format("Посылка <<%s>> обёрнута в защитную плёнку", getDescription()));
-        System.out.println(massegePackageItem);
+        System.out.println(getMessPackageItem());
     }
 
     @Override

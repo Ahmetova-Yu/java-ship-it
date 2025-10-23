@@ -9,8 +9,6 @@ public abstract class Parcel {
     private final String deliveryAddress;
     private final int sendDay;
 
-    public final String massegePackageItem = format("Посылка <<%s>> упакована", getDescription());
-
     public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
         this.description = description;
         this.weight = weight;
@@ -19,14 +17,18 @@ public abstract class Parcel {
     }
 
     public void packageItem() {
-        System.out.println(massegePackageItem);
+        System.out.println(getMessPackageItem());
+    }
+
+    public String getMessPackageItem() {
+        return format("Посылка <<%s>> упакована", getDescription());
     }
 
     public void deliver() {
         System.out.println(format("Посылка <<%s>> доставлена по адресу %s", description, deliveryAddress));
     }
 
-    public double calculateDeliveryCost() {
+    public int calculateDeliveryCost() {
         return weight * getBaseCost();
     }
 
