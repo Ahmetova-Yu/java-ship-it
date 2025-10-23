@@ -24,7 +24,9 @@ public class DeliveryApp {
                     sendParcels();
                     break;
                 case 3:
+                    System.out.print("Стоимость доставки = ");
                     calculateCosts();
+                    System.out.println();
                     break;
                 case 0:
                     running = false;
@@ -90,16 +92,25 @@ public class DeliveryApp {
 
     private static void addParcelToParcels(Parcel parcel) {
         allParcels.add(parcel);
+        System.out.println();
         System.out.println("Посылка успешно добавлена!");
         System.out.println();
     }
 
     private static void sendParcels() {
+        if (allParcels.isEmpty()) {
+            System.out.println("Нет посылок для отправления!");
+            System.out.println();
+            return;
+        }
+
         for (Parcel parcel : allParcels) {
             parcel.packageItem();
             parcel.deliver();
             System.out.println();
         }
+
+        allParcels.clear();
     }
 
     private static void calculateCosts() {
