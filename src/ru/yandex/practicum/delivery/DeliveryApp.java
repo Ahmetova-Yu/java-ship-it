@@ -9,6 +9,7 @@ public class DeliveryApp {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Parcel> allParcels = new ArrayList<>();
+    private static List<Trackable> trackableParcels = new ArrayList<>();
 
     public static void main(String[] args) {
         boolean running = true;
@@ -28,6 +29,10 @@ public class DeliveryApp {
                     calculateCosts();
                     System.out.println();
                     break;
+                case 4:
+                    reportStatusParcels();
+                    System.out.println();
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -42,6 +47,7 @@ public class DeliveryApp {
         System.out.println("1 — Добавить посылку");
         System.out.println("2 — Отправить все посылки");
         System.out.println("3 — Посчитать стоимость доставки");
+        System.out.println("4 — Обновить статус всех отслеживаемых посылок");
         System.out.println("0 — Завершить");
     }
 
@@ -74,6 +80,7 @@ public class DeliveryApp {
             case 2:
                 FragileParcel fragileParcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
                 addParcelToParcels(fragileParcel);
+                trackableParcels.add(fragileParcel);
                 break;
 
             case 3:
@@ -111,16 +118,27 @@ public class DeliveryApp {
         }
 
         allParcels.clear();
+        trackableParcels.clear();
     }
 
     private static void calculateCosts() {
         int sum = 0;
-
         for (Parcel parcel : allParcels) {
             sum += parcel.calculateDeliveryCost();
         }
 
         System.out.println(sum);
+    }
+
+    private static void reportStatusParcels() {
+        System.out.print("Введите новое местоположение посылок: ");
+        String newLocation = scanner.nextLine();
+
+        System.out.println();
+
+        for (Trackable parcel : trackableParcels) {
+            parcel.reportStatus(newLocation);
+        }
     }
 }
 

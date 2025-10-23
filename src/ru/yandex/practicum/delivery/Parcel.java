@@ -25,7 +25,7 @@ public abstract class Parcel {
     }
 
     public void deliver() {
-        System.out.println(format("Посылка <<%s>> доставлена по адресу %s", description, deliveryAddress));
+        System.out.printf("Посылка <<%s>> доставлена по адресу %s%n", description, deliveryAddress);
     }
 
     public int calculateDeliveryCost() {
