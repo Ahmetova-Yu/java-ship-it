@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/out/production/java-ship-it/ru/yandex/practicum/delivery/Trackable.class
+**/*.class
