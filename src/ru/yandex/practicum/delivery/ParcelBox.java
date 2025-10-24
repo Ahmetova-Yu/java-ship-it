@@ -1,9 +1,10 @@
 package ru.yandex.practicum.delivery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
-    ArrayList<T> allParcels = new ArrayList<>();
+    List<T> allParcels = new ArrayList<>();
 
     private final int weight;
     private int currentWeight;
@@ -45,7 +46,7 @@ public class ParcelBox<T extends Parcel> {
         }
     }
 
-    public ArrayList<T> getAllParcels() {
+    public List<T> getAllParcels() {
         return allParcels;
     }
 }

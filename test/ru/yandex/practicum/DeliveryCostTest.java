@@ -61,6 +61,7 @@ public class DeliveryCostTest {
         PerishableParcel perishableParcel = new PerishableParcel("Йогурт", 10,
                 "г. Калуга", 3, 2);
 
+        perishableParcelParcelBox.addParcel(perishableParcel);
         assertEquals(1, perishableParcelParcelBox.getAllParcels().size());
     }
 
@@ -70,6 +71,7 @@ public class DeliveryCostTest {
         PerishableParcel perishableParcel = new PerishableParcel("Йогурт", 40,
                 "г. Калуга", 3, 2);
 
+        perishableParcelParcelBox.addParcel(perishableParcel);
         assertEquals(0, perishableParcelParcelBox.getAllParcels().size());
     }
 
@@ -79,6 +81,7 @@ public class DeliveryCostTest {
         PerishableParcel perishableParcel = new PerishableParcel("Йогурт", 30,
                 "г. Калуга", 3, 2);
 
-        assertEquals(0, perishableParcelParcelBox.getAllParcels().size());
+        perishableParcelParcelBox.addParcel(perishableParcel);
+        assertEquals(1, perishableParcelParcelBox.getAllParcels().size());
     }
 }
